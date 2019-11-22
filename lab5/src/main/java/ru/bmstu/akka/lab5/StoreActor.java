@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class StoreActor extends AbstractActor {
 
-    private Map<String, Integer> storage;
+    private Map<TestURL, Integer> storage;
 
 
     public StoreActor() {

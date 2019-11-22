@@ -1,4 +1,7 @@
 package ru.bmstu.akka.lab5;
 
-public class TestURL {
+import java.io.Serializable;
+
+public class TestURL implements Serializable {
+    
 }
