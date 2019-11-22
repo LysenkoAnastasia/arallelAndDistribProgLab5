@@ -5,6 +5,7 @@ import akka.http.javadsl.Http;
 import akka.http.javadsl.ServerBinding;
 import akka.http.javadsl.model.HttpRequest;
 import akka.http.javadsl.model.HttpResponse;
+import akka.http.javadsl.server.Route;
 import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
 
@@ -20,7 +21,7 @@ public class Main {
                 ActorMaterializer.create(system);
 
         Main app = new Main();
-        final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = ;
+        final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = app.createRoute();
         final CompletionStage<ServerBinding> binding = http.bindAndHandle(
                 routeFlow,
                 ConnectHttp.toHost("localhost", 8080),
@@ -33,5 +34,8 @@ public class Main {
                 .thenAccept(unbound -> system.terminate());
     }
 
+    private Flow createRoute() {
+        return null;
+    }
 
 }
