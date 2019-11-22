@@ -18,8 +18,9 @@ public class StoreActor extends AbstractActor {
 
     @Override
     public Receive createReceive() {
-        return ReceiveBuilder.create()
-                .match(TestMsg.class, this::resultTest)
-                .build();
+        return receiveBuilder()
+                .match(ResultURL.class,this::result)
+                .match(TestURL.class,this::getTest)
+                .build();;
     }
 }
