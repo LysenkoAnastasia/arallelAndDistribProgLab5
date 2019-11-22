@@ -18,6 +18,8 @@ public class Main {
         final Http http = Http.get(system);
         final ActorMaterializer materializer =
                 ActorMaterializer.create(system);
+
+        Main app = new Main();
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = <>;
         final CompletionStage<ServerBinding> binding = http.bindAndHandle(
                 routeFlow,
@@ -28,6 +30,6 @@ public class Main {
         System.in.read();
         binding
                 .thenCompose(ServerBinding::unbind)
-                .thenAccept(unbound -> system.terminate()); 
+                .thenAccept(unbound -> system.terminate());
     }
 }
