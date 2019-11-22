@@ -20,7 +20,7 @@ public class Main {
                 ActorMaterializer.create(system);
 
         Main app = new Main();
-        final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = <>;
+        final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = app.createRoute().flow(system, materializer);
         final CompletionStage<ServerBinding> binding = http.bindAndHandle(
                 routeFlow,
                 ConnectHttp.toHost("localhost", 8080),
