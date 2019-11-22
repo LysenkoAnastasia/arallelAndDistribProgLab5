@@ -3,6 +3,7 @@ package ru.bmstu.akka.lab5;
 import akka.actor.AbstractActor;
 import akka.japi.pf.ReceiveBuilder;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class StoreActor extends AbstractActor {
@@ -10,9 +11,8 @@ public class StoreActor extends AbstractActor {
     private Map<String, Integer> storage;
 
 
-
     public StoreActor() {
-
+        this.storage = new HashMap<>();
     }
 
 
