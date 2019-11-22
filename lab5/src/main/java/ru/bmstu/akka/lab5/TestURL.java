@@ -18,6 +18,6 @@ public class TestURL implements Serializable {
     public Integer getCount() {
         return count;
     }
-    
+
 }
 
