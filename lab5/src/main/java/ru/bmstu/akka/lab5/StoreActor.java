@@ -5,9 +5,9 @@ import akka.japi.pf.ReceiveBuilder;
 
 public class StoreActor extends AbstractActor {
 
-
+    
     public StoreActor() {
-        
+
     }
 
 
