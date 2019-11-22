@@ -3,10 +3,11 @@ package ru.bmstu.akka.lab5;
 import akka.actor.AbstractActor;
 import akka.japi.pf.ReceiveBuilder;
 
-public class TesterActor extends AbstractActor {
+public class StoreActor extends AbstractActor {
 
 
-    public TesterActor() {
+    public StoreActor() {
+        
     }
 
 
