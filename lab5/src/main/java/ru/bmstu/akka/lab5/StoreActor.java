@@ -21,6 +21,15 @@ public class StoreActor extends AbstractActor {
         return receiveBuilder()
                 .match(ResultURL.class,this::result)
                 .match(TestURL.class,this::getTest)
-                .build();;
+                .build();
     }
+
+    private void result(ResultURL resultURL) {
+
+    }
+
+    private void getTest(TestURL testURL) {
+
+    }
+
 }
