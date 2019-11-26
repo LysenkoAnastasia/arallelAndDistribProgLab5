@@ -9,6 +9,8 @@ import akka.http.javadsl.model.Query;
 import akka.pattern.Patterns;
 import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
+import com.sun.corba.se.impl.orbutil.closure.Future;
+import scala.compat.java8.FutureConverters;
 
 import java.util.Optional;
 import java.util.concurrent.CompletionStage;
@@ -32,8 +34,8 @@ public class Tester {
     }
 
     private CompletionStage<ResultURL> processTest(TestURL testURL) {
-        return completedFuture Patterns.ask(actorRef, testURL, 5000)
-                .thenCompose()
+        return FutureConverters.CompletionStageOps(Patterns.ask(actorRef, testURL, 5000)
+                .thenCompose())
 
     }
 
