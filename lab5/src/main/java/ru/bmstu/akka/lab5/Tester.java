@@ -21,7 +21,7 @@ public class Tester {
      public Flow<HttpRequest, HttpResponse, NotUsed> createRoute(ActorSystem system, ActorMaterializer materializer) {
         return Flow.of(HttpRequest.class)
                 .map(this::request)
-                .mapAsync()
+                .mapAsync(1, this::processTest)
     }
 
     private TestURL request(HttpRequest httpRequest) {
