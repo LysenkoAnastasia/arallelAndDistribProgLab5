@@ -20,7 +20,7 @@ public class Tester {
      public Flow<HttpRequest, HttpResponse, NotUsed> createRoute(ActorSystem system, ActorMaterializer materializer) {
         return Flow.of(HttpRequest.class)
                 .map(this::request)
-                .map()
+                .mapAsync()
     }
 
     private TestURL request(HttpRequest httpRequest) {
