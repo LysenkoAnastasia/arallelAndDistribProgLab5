@@ -33,7 +33,9 @@ public class Tester {
     }
 
     private CompletionStage<ResultURL> processTest(TestURL testURL) {
-        Future<ResultURL> res =  Patterns.ask(actorRef, testURL, 5000);
+       Patterns.ask(actorRef, testURL, 5000)
+               .andThen()
+               
 
 
     }
