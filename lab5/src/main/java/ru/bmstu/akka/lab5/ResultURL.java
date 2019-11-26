@@ -4,18 +4,18 @@ import java.io.Serializable;
 
 public class ResultURL implements Serializable {
     private Integer time;
-    private Integer count;
+    private TestURL test;
 
-    public ResultURL(Integer time, Integer count) {
+    public ResultURL(TestURL test, Integer time) {
         this.time = time;
-        this.count = count;
+        this.test = test;
     }
 
     public Integer getTime() {
         return time;
     }
 
-    public Integer getCount() {
-        return count;
+    public TestURL getTest() {
+        return test;
     }
 }
