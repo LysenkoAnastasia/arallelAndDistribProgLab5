@@ -36,7 +36,7 @@ public class Main {
                 .thenAccept(unbound -> system.terminate());
     }
 
-    private Flow createRoute() {
+    private Flow<HttpRequest, HttpResponse, NotUsed> createRoute() {
         return null;
     }
 
