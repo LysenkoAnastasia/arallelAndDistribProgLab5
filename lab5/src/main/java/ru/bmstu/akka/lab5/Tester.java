@@ -31,9 +31,9 @@ public class Tester {
         return new TestURL(testUrl.get(), Integer.parseInt(count.get()));
     }
 
-    private CompletionStage<Integer> processTest(TestURL testURL) {
+    private CompletionStage<ResultURL> processTest(TestURL testURL) {
         Patterns.ask(actorRef, testURL, 5000)
-                .
+                .th
 
     }
 
