@@ -21,7 +21,7 @@ public class Main {
         final ActorMaterializer materializer =
                 ActorMaterializer.create(system);
 
-        Main app = new Main();
+        Tester app = new Tester();
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = app.createRoute(system, materializer);
         final CompletionStage<ServerBinding> binding = http.bindAndHandle(
                 routeFlow,
@@ -36,7 +36,7 @@ public class Main {
                 .thenAccept(unbound -> system.terminate());
     }
 
-   
+
 
 
 }
