@@ -25,6 +25,7 @@ public class Tester {
         return Flow.of(HttpRequest.class)
                 .map(this::request)
                 .mapAsync(1, this::processTest)
+                .mapAsync()
     }
 
     private TestURL request(HttpRequest httpRequest) {
