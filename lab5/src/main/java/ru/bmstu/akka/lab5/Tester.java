@@ -32,7 +32,7 @@ public class Tester {
     }
 
     private CompletionStage<Integer> processTest(TestURL testURL) {
-        Patterns.ask(actorRef, testURL, )
+        Patterns.ask(actorRef, testURL, 5000)
 
     }
 
