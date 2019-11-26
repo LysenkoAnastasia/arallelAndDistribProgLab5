@@ -12,6 +12,7 @@ import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
 
 import java.util.Optional;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 import java.util.concurrent.Future;
 
@@ -35,11 +36,9 @@ public class Tester {
 
     private CompletionStage<ResultURL> processTest(TestURL testURL) {
        return Patterns.ask(this.actorRef, testURL, 5000)
-               .thenApply(r -> {
-                   return (TestUrlMsg)r;
-               })
+               .thenApply(r -> (TestUrlMsg)r)
                .thenCompose(res -> {
-                   if(res)
+                   return CompletableFuture.completedFuture(res)
                        }
                        )
 
