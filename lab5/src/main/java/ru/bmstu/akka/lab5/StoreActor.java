@@ -1,6 +1,7 @@
 package ru.bmstu.akka.lab5;
 
 import akka.actor.AbstractActor;
+import akka.actor.ActorRef;
 
 import java.util.HashMap;
 
@@ -23,12 +24,13 @@ public class StoreActor extends AbstractActor {
     }
 
     private void result(ResultURL resultURL) {
-        
+
 
     }
 
     private void getTest(TestURL testURL) {
-
+        getSender().tell(new TestUrlMsg(),
+                ActorRef.noSender());
     }
 
 }
