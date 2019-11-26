@@ -25,7 +25,8 @@ public class Tester {
 
     private TestURL request(HttpRequest httpRequest) {
         Query query = httpRequest.getUri().query();
-        Optional<String> Url = query.get();
+        Optional<String> Url = query.get("url");
+        Optional
         return null;
     }
 
