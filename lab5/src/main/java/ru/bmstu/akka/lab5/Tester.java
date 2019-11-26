@@ -9,6 +9,8 @@ import akka.japi.Pair;
 import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
 
+import java.util.Optional;
+
 public class Tester {
 
 
@@ -23,7 +25,7 @@ public class Tester {
 
     private TestURL request(HttpRequest httpRequest) {
         Query query = httpRequest.getUri().query();
-        
+        Optional
         return null;
     }
 
