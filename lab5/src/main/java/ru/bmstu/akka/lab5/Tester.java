@@ -1,6 +1,7 @@
 package ru.bmstu.akka.lab5;
 
 import akka.NotUsed;
+import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 import akka.http.javadsl.model.HttpRequest;
 import akka.http.javadsl.model.HttpResponse;
@@ -13,8 +14,7 @@ import java.util.Optional;
 import java.util.concurrent.CompletionStage;
 
 public class Tester {
-
-
+    private ActorRef actorRef;
     public Tester() {
 
     }
@@ -32,7 +32,7 @@ public class Tester {
     }
 
     private CompletionStage<Integer> processTest(TestURL testURL) {
-        Patterns.ask()
+        Patterns.ask(actorRef, )
 
     }
 
