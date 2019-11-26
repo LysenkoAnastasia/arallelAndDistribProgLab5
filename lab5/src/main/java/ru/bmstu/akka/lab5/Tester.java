@@ -5,6 +5,7 @@ import akka.actor.ActorSystem;
 import akka.http.javadsl.model.HttpRequest;
 import akka.http.javadsl.model.HttpResponse;
 import akka.http.javadsl.model.Query;
+import akka.pattern.Patterns;
 import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
 
@@ -31,7 +32,7 @@ public class Tester {
     }
 
     private CompletionStage<Integer> processTest(TestURL testURL) {
-        
+        Patterns.ask()
 
     }
 
