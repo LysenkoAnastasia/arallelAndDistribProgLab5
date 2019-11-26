@@ -4,6 +4,7 @@ import akka.NotUsed;
 import akka.actor.ActorSystem;
 import akka.http.javadsl.model.HttpRequest;
 import akka.http.javadsl.model.HttpResponse;
+import akka.http.javadsl.model.Query;
 import akka.japi.Pair;
 import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
@@ -20,7 +21,8 @@ public class Tester {
                 .map()
     }
 
-    private Pair<String, Integer> request() {
+    private TestURL request(HttpRequest httpRequest) {
+        Query query = 
         return null;
     }
 
