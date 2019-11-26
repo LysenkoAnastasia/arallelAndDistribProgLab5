@@ -23,6 +23,7 @@ public class StoreActor extends AbstractActor {
     }
 
     private void result(ResultURL resultURL) {
+        
 
     }
 
