@@ -36,7 +36,7 @@ public class Tester {
        Patterns.ask(actorRef, testURL, 5000)
                .andThen()
                .thenCompose(res ->
-                       CompletionStage)
+                       )
 
 
 
