@@ -38,7 +38,8 @@ public class Main {
 
     private Flow<HttpRequest, HttpResponse, NotUsed> createRoute(ActorSystem system, ActorMaterializer materializer) {
         return Flow.of(HttpRequest.class)
-                .map(r -> r.getUri().query().get())
+                .map(this::)
     }
+
 
 }
