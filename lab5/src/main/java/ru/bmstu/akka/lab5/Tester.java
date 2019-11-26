@@ -22,7 +22,8 @@ public class Tester {
     }
 
     private TestURL request(HttpRequest httpRequest) {
-        Query query = 
+        Query query = httpRequest.getUri().query();
+        
         return null;
     }
 
