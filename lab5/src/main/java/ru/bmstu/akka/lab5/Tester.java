@@ -3,6 +3,7 @@ package ru.bmstu.akka.lab5;
 import akka.NotUsed;
 import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
+import akka.dispatch.OnComplete;
 import akka.http.javadsl.model.HttpRequest;
 import akka.http.javadsl.model.HttpResponse;
 import akka.http.javadsl.model.Query;
@@ -34,7 +35,9 @@ public class Tester {
 
     private CompletionStage<ResultURL> processTest(TestURL testURL) {
        Patterns.ask(actorRef, testURL, 5000)
-               .thenApply()
+               .andThen(new OnComplete<Object>() {
+                   
+               })
                .thenCompose(res -> Optional<>
                        )
 
