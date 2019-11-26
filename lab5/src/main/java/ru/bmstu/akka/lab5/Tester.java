@@ -18,6 +18,6 @@ public class Tester {
                 .map(this::)
     }
 
-    private 
+    private Pair<>
 
 }
