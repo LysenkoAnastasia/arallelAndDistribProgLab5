@@ -33,8 +33,8 @@ public class Tester {
     }
 
     private CompletionStage<ResultURL> processTest(TestURL testURL) {
-        Future<ResultURL> Patterns.ask(actorRef, testURL, 5000)
-                .thenCompose()
+        Future<ResultURL> res =  Patterns.ask(actorRef, testURL, 5000);
+        
 
     }
 
