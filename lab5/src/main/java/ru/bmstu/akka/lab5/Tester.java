@@ -37,7 +37,7 @@ public class Tester {
        return Patterns.ask(this.actorRef, testURL, 5000)
                .thenApply()
                .thenCompose(res -> {
-                   
+                   if(res)
                        }
                        )
 
