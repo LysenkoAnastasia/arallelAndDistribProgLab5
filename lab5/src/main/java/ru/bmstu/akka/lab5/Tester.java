@@ -12,7 +12,7 @@ import akka.stream.javadsl.Flow;
 
 import java.util.Optional;
 import java.util.concurrent.CompletionStage;
-import scala.util.concurrent.Future;
+import java.util.concurrent.Future;
 
 public class Tester {
     private ActorRef actorRef;
