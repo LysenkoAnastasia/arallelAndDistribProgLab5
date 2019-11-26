@@ -8,7 +8,11 @@ import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
 
 public class Tester {
-    private Flow<HttpRequest, HttpResponse, NotUsed> createRoute(ActorSystem system, ActorMaterializer materializer) {
+
+    public Tester() {
+        
+    }
+     public Flow<HttpRequest, HttpResponse, NotUsed> createRoute(ActorSystem system, ActorMaterializer materializer) {
         return Flow.of(HttpRequest.class)
                 .map(this::)
     }
