@@ -12,7 +12,7 @@ import akka.stream.javadsl.Flow;
 
 import java.util.Optional;
 import java.util.concurrent.CompletionStage;
-import java.util.concurrent.Future;
+import scala.util.concurrent.Future;
 
 public class Tester {
     private ActorRef actorRef;
@@ -35,7 +35,7 @@ public class Tester {
     private CompletionStage<ResultURL> processTest(TestURL testURL) {
        Patterns.ask(actorRef, testURL, 5000)
                .andThen()
-               
+
 
 
     }
