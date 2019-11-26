@@ -10,6 +10,7 @@ import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
 
 import java.util.Optional;
+import java.util.concurrent.CompletionStage;
 
 public class Tester {
 
@@ -30,7 +31,7 @@ public class Tester {
         return new TestURL(testUrl.get(), Integer.parseInt(count.get()));
     }
 
-    private 
+    private CompletionStage<Integer>  
 
 
 
