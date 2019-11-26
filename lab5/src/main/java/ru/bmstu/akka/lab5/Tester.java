@@ -32,8 +32,8 @@ public class Tester {
     }
 
     private CompletionStage<ResultURL> processTest(TestURL testURL) {
-        Patterns.ask(actorRef, testURL, 5000)
-                .thenAccept()
+        return  Patterns.ask(actorRef, testURL, 5000)
+                .th
 
     }
 
