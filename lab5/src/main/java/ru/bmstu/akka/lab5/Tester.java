@@ -27,7 +27,9 @@ public class Tester {
         Query query = httpRequest.getUri().query();
         Optional<String> testUrl = query.get("testUrl");
         Optional<String> count = query.get("count");
-        return new TestURL(testUrl.get(), int(count.get()));
+        return new TestURL(testUrl.get(), Integer.parseInt(count.get()));
     }
+
+    
 
 }
