@@ -24,9 +24,7 @@ public class StoreActor extends AbstractActor {
     }
 
     private void result(ResultURL resultURL) {
-
-
-
+        storage.put(resultURL.getTest(), resultURL.getTime());
     }
 
     private void getTest(TestURL testURL) {
