@@ -36,9 +36,11 @@ public class Tester {
     private CompletionStage<ResultURL> processTest(TestURL testURL) {
        Patterns.ask(actorRef, testURL, 5000)
                .andThen(new OnComplete<Object>() {
-                   
+                   private void OnComplete() {
+                       
+                   }
                })
-               .thenCompose(res -> Optional<>
+               .thenCompose(res ->
                        )
 
 
