@@ -28,7 +28,7 @@ public class StoreActor extends AbstractActor {
     }
 
     private void getTest(TestURL testURL) {
-        getSender().tell(new TestUrlMsg(),
+        getSender().tell(new TestUrlMsg(new ResultURL(testURL, testURL.getCount())),
                 ActorRef.noSender());
     }
 
