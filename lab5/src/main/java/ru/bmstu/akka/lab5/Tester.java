@@ -35,7 +35,7 @@ public class Tester {
     private CompletionStage<ResultURL> processTest(TestURL testURL) {
        Patterns.ask(actorRef, testURL, 5000)
                .thenApply()
-               .thenCompose(res ->
+               .thenCompose(res -> Optional<>
                        )
 
 
