@@ -4,11 +4,10 @@ import akka.actor.AbstractActor;
 import akka.japi.pf.ReceiveBuilder;
 
 import java.util.HashMap;
-import java.util.Map;
 
 public class StoreActor extends AbstractActor {
 
-    private Map<TestURL, Integer> storage;
+    private HashMap<TestURL, Integer> storage;
 
 
     public StoreActor() {
