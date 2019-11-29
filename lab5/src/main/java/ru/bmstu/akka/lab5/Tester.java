@@ -59,8 +59,8 @@ public class Tester {
     private CompletionStage<ResultURL> startTest(TestURL testURL) {
         final Sink<TestURL, CompletionStage<Integer>> sink = createSink();
 
-        Source.from(Collections.singletonList(testURL))
-                .map()
+        return Source.from(Collections.singletonList(testURL))
+                .mapConcat()
     }
 
     private  Sink<TestURL, CompletionStage<Integer>> createSink() {
