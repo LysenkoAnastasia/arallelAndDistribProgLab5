@@ -7,7 +7,6 @@ import akka.http.javadsl.model.Query;
 import akka.pattern.Patterns;
 import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
-
 import ru.bmstu.akka.lab5.ResultURL;
 import ru.bmstu.akka.lab5.TestURL;
 import ru.bmstu.akka.lab5.TestUrlMsg;
