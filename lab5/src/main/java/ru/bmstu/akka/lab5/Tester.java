@@ -9,6 +9,7 @@ import akka.http.javadsl.model.Query;
 import akka.pattern.Patterns;
 import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
+import akka.stream.javadsl.Keep;
 import akka.stream.javadsl.Sink;
 import akka.stream.javadsl.Source;
 import ru.bmstu.akka.lab5.ResultURL;
@@ -61,7 +62,7 @@ public class Tester {
 
         return Source.from(Collections.singletonList(testURL))
                 .mapConcat(test -> Collections.nCopies(test.getCount(), test.getUrl()))
-                .toMat()
+                .toMat(sink, Keep.right())
     }
 
     private  Sink<TestURL, CompletionStage<Integer>> createSink() {
