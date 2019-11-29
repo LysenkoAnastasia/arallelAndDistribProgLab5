@@ -58,18 +58,18 @@ public class Tester {
 
     private CompletionStage<ResultURL> startTest(TestURL testURL) {
         final Sink<TestURL, CompletionStage<Integer>> sink = createSink();
-        Flow.<ResultURL>create()
-                .mapConcat(test -> Collections.nCopies(test.getTime(), test.getTest()))
-                .mapAsync(5, url -> {
 
-
-                })
         Source.from(Collections.singletonList(testURL))
                 .map()
     }
 
     private  Sink<TestURL, CompletionStage<Integer>> createSink() {
-        
+        Flow.<ResultURL>create()
+                .mapConcat(test -> Collections.nCopies(test.getTime(), test.getTest()))
+                .mapAsync(5, url -> {
+                    
+
+                })
     }
 
 
