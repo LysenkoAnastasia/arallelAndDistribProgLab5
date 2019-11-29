@@ -12,6 +12,7 @@ import akka.stream.javadsl.Flow;
 import ru.bmstu.akka.lab5.ResultURL;
 import ru.bmstu.akka.lab5.TestURL;
 import ru.bmstu.akka.lab5.TestUrlMsg;
+import scala.compat.java8.FutureConverters;
 
 
 import java.util.Optional;
@@ -40,7 +41,7 @@ public class Tester {
     }
 
     private CompletionStage<ResultURL> processTest(TestURL testURL) {
-       return Patterns.ask(this.actorRef, testURL, 5000)
+       return FutureConverters.toJava(Patterns.ask(this.actorRef, testURL, 5000))
                .thenApply(r -> r)
                .thenCompose(res -> {
                    Optional<TestURL>
