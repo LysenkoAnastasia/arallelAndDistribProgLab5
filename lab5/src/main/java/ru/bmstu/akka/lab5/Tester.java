@@ -1,3 +1,5 @@
+package ru.bmstu.akka.lab5;
+
 import akka.NotUsed;
 import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
@@ -39,7 +41,7 @@ public class Tester {
 
     private CompletionStage<ResultURL> processTest(TestURL testURL) {
        return Patterns.ask(this.actorRef, testURL, 5000)
-               .thenApply(r -> (TestUrlMsg)r)
+               .thenApply(r -> r)
                .thenCompose(res -> {
                    Optional<TestURL>
                    return res.
