@@ -9,6 +9,7 @@ import akka.http.javadsl.model.HttpRequest;
 import akka.http.javadsl.model.HttpResponse;
 import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
+import org.asynchttpclient.AsyncHttpClient;
 
 import java.io.IOException;
 import java.util.concurrent.CompletionStage;
@@ -17,11 +18,12 @@ public class Main {
     public static void main(String[] args) throws IOException {
         System.out.println("start!");
         ActorSystem system = ActorSystem.create("routes");
+        AsyncHttpClient asyncHttpClient;
         final Http http = Http.get(system);
         final ActorMaterializer materializer =
                 ActorMaterializer.create(system);
 
-        Tester app = new Tester(system, materializer);
+        Tester app = new Tester(asyncHttpClient, system, materializer);
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = app.createRoute(system, materializer);
         final CompletionStage<ServerBinding> binding = http.bindAndHandle(
                 routeFlow,
