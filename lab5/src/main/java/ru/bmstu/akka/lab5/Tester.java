@@ -57,7 +57,7 @@ public class Tester {
 
     private CompletionStage<ResultURL> startTest(TestURL testURL) {
         Source.from(Collections.singletonList(testURL))
-                .
+                .map()
     }
 
 
