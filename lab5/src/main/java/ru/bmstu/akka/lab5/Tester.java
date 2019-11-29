@@ -60,7 +60,7 @@ public class Tester {
     }
 
     private CompletionStage<ResultURL> startTest(TestURL testURL) {
-        final AsyncHttpClient asyncHttpClient 
+        final AsyncHttpClient asyncHttpClient;
         final Sink<TestURL, CompletionStage<Integer>> sink = createSink();
 
         return Source.from(Collections.singletonList(testURL))
