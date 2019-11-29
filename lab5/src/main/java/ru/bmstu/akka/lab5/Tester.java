@@ -27,9 +27,11 @@ import java.util.concurrent.CompletionStage;
 public class Tester {
     private ActorRef actorRef;
     final ActorMaterializer materializer;
-    public Tester(ActorRef actorRef, ActorMaterializer materializer) {
-        this.materializer = materializer;
+    final AsyncHttpClient asyncHttpClient;
 
+    public Tester(AsyncHttpClient asyncHttpClient, ActorRef actorRef, ActorMaterializer materializer) {
+        this.materializer = materializer;
+        this.asyncHttpClient = asyncHttpClient;
         this.actorRef = actorRef;
     }
      public Flow<HttpRequest, HttpResponse, NotUsed> createRoute(ActorSystem system, ActorMaterializer materializer) {
