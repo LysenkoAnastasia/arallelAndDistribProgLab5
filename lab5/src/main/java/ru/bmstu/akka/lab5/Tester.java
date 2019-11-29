@@ -61,7 +61,7 @@ public class Tester {
 
         return Source.from(Collections.singletonList(testURL))
                 .mapConcat(test -> Collections.nCopies(test.getCount(), test.getUrl()))
-                .
+                .toMat()
     }
 
     private  Sink<TestURL, CompletionStage<Integer>> createSink() {
