@@ -38,7 +38,7 @@ public class Tester {
         return Flow.of(HttpRequest.class)
                 .map(this::request)
                 .mapAsync(1, this::processTest)
-                .mapAsync()
+                .map(this::)
     }
 
     private TestURL request(HttpRequest httpRequest) {
@@ -60,9 +60,9 @@ public class Tester {
     }
 
     private CompletionStage<ResultURL> startTest(TestURL testURL) {
-        final AsyncHttpClient asyncHttpClient;
+        //final AsyncHttpClient asyncHttpClient;
         final Sink<TestURL, CompletionStage<Integer>> sink = createSink();
-        asyncHttpClient.close();
+        //asyncHttpClient.close();
 
         return Source.from(Collections.singletonList(testURL))
                 //.mapConcat(test -> Collections.nCopies(test.getCount(), test.getUrl()))
