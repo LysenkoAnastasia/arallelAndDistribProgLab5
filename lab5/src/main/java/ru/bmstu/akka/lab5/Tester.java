@@ -57,8 +57,8 @@ public class Tester {
 
     private CompletionStage<ResultURL> startTest(TestURL testURL) {
         Flow.<ResultURL>create()
-                .mapConcat(test -> Collections.nCopies(test.getTime(), test.getTest())
-                        
+                .mapConcat(test -> Collections.nCopies(test.getTime(), test.getTest()))
+                .mapAsync()
         Source.from(Collections.singletonList(testURL))
                 .map()
     }
