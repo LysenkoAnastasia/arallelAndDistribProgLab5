@@ -62,6 +62,7 @@ public class Tester {
     private CompletionStage<ResultURL> startTest(TestURL testURL) {
         final AsyncHttpClient asyncHttpClient;
         final Sink<TestURL, CompletionStage<Integer>> sink = createSink();
+        asyncHttpClient.close();
 
         return Source.from(Collections.singletonList(testURL))
                 //.mapConcat(test -> Collections.nCopies(test.getCount(), test.getUrl()))
@@ -83,6 +84,7 @@ public class Tester {
 
                 })
                 .toMat(Sink.fold(0, Integer::sum), Keep.right());
+
     }
 
 
