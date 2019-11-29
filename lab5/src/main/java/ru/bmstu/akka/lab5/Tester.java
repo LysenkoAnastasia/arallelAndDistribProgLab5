@@ -61,7 +61,7 @@ public class Tester {
     private CompletionStage<ResultURL> startTest(TestURL testURL) {
         final Sink<TestURL, CompletionStage<Integer>> sink = createSink();
 
-        return Source.from(Collections.singletonList(testURL))
+        Source.from(Collections.singletonList(testURL))
                 .mapConcat(test -> Collections.nCopies(test.getCount(), test.getUrl()))
                 .toMat(sink, Keep.right())
                 .run(materializer);
