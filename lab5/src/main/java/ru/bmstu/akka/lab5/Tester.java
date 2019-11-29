@@ -17,8 +17,11 @@ import java.util.concurrent.CompletionStage;
 
 public class Tester {
     private ActorRef actorRef;
-    public Tester() {
+    final ActorMaterializer materializer;
+    public Tester(ActorRef actorRef, ActorMaterializer materializer) {
+        this.materializer = materializer;
 
+        this.actorRef = actorRef;
     }
      public Flow<HttpRequest, HttpResponse, NotUsed> createRoute(ActorSystem system, ActorMaterializer materializer) {
         return Flow.of(HttpRequest.class)

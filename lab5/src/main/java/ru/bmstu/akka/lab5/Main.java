@@ -21,7 +21,7 @@ public class Main {
         final ActorMaterializer materializer =
                 ActorMaterializer.create(system);
 
-        Tester app = new Tester();
+        Tester app = new Tester(system, materializer);
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = app.createRoute(system, materializer);
         final CompletionStage<ServerBinding> binding = http.bindAndHandle(
                 routeFlow,
