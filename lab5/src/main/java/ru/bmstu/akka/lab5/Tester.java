@@ -43,7 +43,7 @@ public class Tester {
        return Patterns.ask(this.actorRef, testURL, 5000)
                .thenApply(r -> r)
                .thenCompose(res -> {
-                   Optional<TestURL> 
+                   Optional<TestURL>
                    return res.
                        }
                        )
