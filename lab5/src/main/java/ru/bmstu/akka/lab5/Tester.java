@@ -56,6 +56,7 @@ public class Tester {
     }
 
     private CompletionStage<ResultURL> startTest(TestURL testURL) {
+        Flow<ResultURL>
         Source.from(Collections.singletonList(testURL))
                 .map()
     }
