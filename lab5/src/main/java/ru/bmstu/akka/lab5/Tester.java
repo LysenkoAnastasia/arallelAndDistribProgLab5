@@ -66,7 +66,9 @@ public class Tester {
                 .toMat(sink, Keep.right())
                 .run(materializer)
                 .thenApply(sum -> {
-                    ResultURL resultURL = new ResultURL(testURL, sum/testURL.getCount())
+                    ResultURL resultURL = new ResultURL(testURL, sum/testURL.getCount());
+                    actorRef.tell(resultURL, ActorRef.noSender());
+                    return resultURL;
                 });
     }
 
