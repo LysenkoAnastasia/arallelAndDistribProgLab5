@@ -70,7 +70,7 @@ public class Tester {
 
 
                 })
-                .toMat(Sink.fold(0, ))
+                .toMat(Sink.fold(0, Integer::sum))
     }
 
 
