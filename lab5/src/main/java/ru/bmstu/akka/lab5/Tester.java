@@ -82,7 +82,7 @@ public class Tester {
                     return CompletableFuture.completedFuture(0);
 
                 })
-                .to(Sink.fold(0, Integer::sum));
+                .toMat(Sink.fold(0, Integer::sum), Keep.right());
     }
 
 
