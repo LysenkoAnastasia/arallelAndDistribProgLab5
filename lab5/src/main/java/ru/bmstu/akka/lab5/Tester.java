@@ -12,6 +12,7 @@ import akka.stream.javadsl.Flow;
 import akka.stream.javadsl.Keep;
 import akka.stream.javadsl.Sink;
 import akka.stream.javadsl.Source;
+import org.asynchttpclient.AsyncHttpClient;
 import ru.bmstu.akka.lab5.ResultURL;
 import ru.bmstu.akka.lab5.TestURL;
 import ru.bmstu.akka.lab5.TestUrlMsg;
@@ -59,6 +60,7 @@ public class Tester {
     }
 
     private CompletionStage<ResultURL> startTest(TestURL testURL) {
+        final AsyncHttpClient asyncHttpClient 
         final Sink<TestURL, CompletionStage<Integer>> sink = createSink();
 
         return Source.from(Collections.singletonList(testURL))
