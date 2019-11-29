@@ -69,7 +69,7 @@ public class Tester {
 
     private  Sink<TestURL, CompletionStage<Integer>> createSink() {
         Flow.<ResultURL>create()
-                .mapConcat(test -> Collections.nCopies(test.getTime(), test.getTest()))
+                //.mapConcat(test -> Collections.nCopies(test.getTime(), test.getTest()))
                 .mapAsync(5, url -> {
                     return CompletableFuture.completedFuture(0.0);
 
