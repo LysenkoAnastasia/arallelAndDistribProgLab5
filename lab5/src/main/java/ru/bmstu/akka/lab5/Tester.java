@@ -9,6 +9,7 @@ import akka.http.javadsl.model.Query;
 import akka.pattern.Patterns;
 import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
+import akka.stream.javadsl.Sink;
 import akka.stream.javadsl.Source;
 import ru.bmstu.akka.lab5.ResultURL;
 import ru.bmstu.akka.lab5.TestURL;
@@ -56,7 +57,7 @@ public class Tester {
     }
 
     private CompletionStage<ResultURL> startTest(TestURL testURL) {
-        final Sink<TestURL, CompletionStage<Integer>>
+        final Sink<TestURL, CompletionStage<Integer>> sink = createSink();
         Flow.<ResultURL>create()
                 .mapConcat(test -> Collections.nCopies(test.getTime(), test.getTest()))
                 .mapAsync(5, url -> {
@@ -65,6 +66,10 @@ public class Tester {
                 })
         Source.from(Collections.singletonList(testURL))
                 .map()
+    }
+
+    private  Sink<TestURL, CompletionStage<Integer>> createSink() {
+        
     }
 
 
