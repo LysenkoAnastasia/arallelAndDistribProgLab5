@@ -26,8 +26,8 @@ import java.util.concurrent.CompletionStage;
 
 public class Tester {
     private ActorRef actorRef;
-    final ActorMaterializer materializer;
-    final AsyncHttpClient asyncHttpClient;
+    private ActorMaterializer materializer;
+    private AsyncHttpClient asyncHttpClient;
 
     public Tester(AsyncHttpClient asyncHttpClient, ActorSystem system, ActorMaterializer materializer) {
         this.materializer = materializer;
