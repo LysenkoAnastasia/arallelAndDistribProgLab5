@@ -70,7 +70,7 @@ public class Tester {
 
 
                 })
-                .toMat()
+                .toMat(Sink.fold(0, ))
     }
 
 
