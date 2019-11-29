@@ -78,7 +78,7 @@ public class Tester {
         Flow.<TestURL>create()
                 .mapConcat(test -> Collections.nCopies(test.getCount(), test.getUrl()))
                 .mapAsync(5, url -> {
-                    
+
                     return CompletableFuture.completedFuture(0);
 
                 })
