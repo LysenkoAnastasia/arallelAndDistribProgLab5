@@ -41,7 +41,8 @@ public class Main {
                     system.terminate();
                     try {
                         asyncHttpClient.close();
-                    }
+                    } catch (IOException exception) {
+                        exception.printStackTrace();
                     }
                 });
     }
