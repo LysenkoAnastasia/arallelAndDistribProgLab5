@@ -60,7 +60,8 @@ public class Tester {
         final Sink<TestURL, CompletionStage<Integer>> sink = createSink();
 
         return Source.from(Collections.singletonList(testURL))
-                .map()
+                .mapConcat(test -> Collections.nCopies(test.getCount(), test.getUrl()))
+                .
     }
 
     private  Sink<TestURL, CompletionStage<Integer>> createSink() {
