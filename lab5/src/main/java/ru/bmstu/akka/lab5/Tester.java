@@ -20,6 +20,7 @@ import scala.compat.java8.FutureConverters;
 
 import java.util.Collections;
 import java.util.Optional;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 
 public class Tester {
@@ -70,6 +71,7 @@ public class Tester {
         Flow.<ResultURL>create()
                 .mapConcat(test -> Collections.nCopies(test.getTime(), test.getTest()))
                 .mapAsync(5, url -> {
+                    return CompletableFuture.completedFuture(0.0);
 
                 })
                 .toMat(Sink.fold(0, Integer::sum)),
