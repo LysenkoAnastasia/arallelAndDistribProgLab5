@@ -63,7 +63,7 @@ public class Tester {
         return Source.from(Collections.singletonList(testURL))
                 .mapConcat(test -> Collections.nCopies(test.getCount(), test.getUrl()))
                 .toMat(sink, Keep.right())
-                .
+                .run(materializer);
     }
 
     private  Sink<TestURL, CompletionStage<Integer>> createSink() {
