@@ -71,10 +71,10 @@ public class Tester {
         Flow.<ResultURL>create()
                 .mapConcat(test -> Collections.nCopies(test.getTime(), test.getTest()))
                 .mapAsync(5, url -> {
-                    return CompletableFuture.completedFuture(0.0);
+                    return CompletableFuture.completedFuture(0);
 
                 })
-                .to(Sink.fold(0.0, Double::sum));
+                .to(Sink.fold(0, Integer::sum));
     }
 
 
