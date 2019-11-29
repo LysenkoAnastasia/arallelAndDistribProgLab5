@@ -62,13 +62,13 @@ public class Tester {
         final Sink<TestURL, CompletionStage<Integer>> sink = createSink();
 
         Source.from(Collections.singletonList(testURL))
-                .mapConcat(test -> Collections.nCopies(test.getCount(), test.getUrl()))
+                //.mapConcat(test -> Collections.nCopies(test.getCount(), test.getUrl()))
                 .toMat(sink, Keep.right())
                 .run(materializer);
     }
 
     private  Sink<TestURL, CompletionStage<Integer>> createSink() {
-        Flow.<ResultURL>create()
+        Flow.<String>create()
                 .mapConcat(test -> Collections.nCopies(test.getTime(), test.getTest()))
                 .mapAsync(5, url -> {
                     return CompletableFuture.completedFuture(0.0);
