@@ -67,7 +67,7 @@ public class Tester {
         Flow.<ResultURL>create()
                 .mapConcat(test -> Collections.nCopies(test.getTime(), test.getTest()))
                 .mapAsync(5, url -> {
-                    
+
 
                 })
     }
