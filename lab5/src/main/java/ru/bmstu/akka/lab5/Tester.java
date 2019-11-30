@@ -50,8 +50,8 @@ public class Tester {
 
     private CompletionStage<ResultURL> processTest(TestURL testURL) {
        return FutureConverters.toJava(Patterns.ask(this.actorRef, testURL, 5000))
-               .thenCompose(r -> r)
-               .thenCompose(res ->
+               .thenApply(r -> (TestUrlMsg)r)
+               .thenCompose(res -> {
                        }
                        )
 
