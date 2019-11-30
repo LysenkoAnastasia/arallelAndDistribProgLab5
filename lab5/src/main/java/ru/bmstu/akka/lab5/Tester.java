@@ -21,6 +21,7 @@ import scala.compat.java8.FutureConverters;
 
 
 import java.time.Duration;
+import java.time.Instant;
 import java.util.Collections;
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
@@ -94,11 +95,12 @@ public class Tester {
     }
 
     private CompletionStage<Integer> getTimeResource(String url) {
+        Instant start = Instant.now();
        return asyncHttpClient.
                prepareGet(url).execute()
                .toCompletableFuture()
                .thenCompose(r -> CompletableFuture.completedFuture(
-                       Duration.between()
+                       Duration.between(start, Instant.now())
                ))
     }
 
