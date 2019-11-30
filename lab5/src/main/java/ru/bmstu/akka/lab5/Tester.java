@@ -95,7 +95,7 @@ public class Tester {
         return  HttpResponse.create()
                 .withStatus(StatusCodes.OK)
                 .withEntity(ContentTypes.APPLICATION_JSON, ByteString.fromString(
-                        Jackson.marshaller(new ObjectMapper().writer().withDefaultPrettyPrinter())
+                        new ObjectMapper().writer().withDefaultPrettyPrinter().writeValueAsString(resultURL)
                 ));
 
     }
