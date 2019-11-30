@@ -67,7 +67,6 @@ public class Tester {
     }
 
     private CompletionStage<ResultURL> startTest(TestURL testURL) {
-        final AsyncHttpClient asyncHttpClient = asyncHttpClient();
         final Sink<TestURL, CompletionStage<Integer>> sink = createSink();
         return Source.from(Collections.singletonList(testURL))
                 .toMat(sink, Keep.right())
@@ -83,7 +82,7 @@ public class Tester {
         //Flow.<TestURL>create()
         Flow.of(TestURL.class)
                 .mapConcat(test -> Collections.nCopies(test.getCount(), test.getUrl()))
-                .mapAsync(5, url -> getTimeResource(url))
+                .mapAsync(5, this::getTimeResource)
                 .toMat(Sink.fold(0, Integer::sum), Keep.right());
 
     }
