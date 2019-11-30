@@ -80,7 +80,7 @@ public class Tester {
         //Flow.<TestURL>create()
         Flow.of(TestURL.class)
                 .mapConcat(test -> Collections.nCopies(test.getCount(), test.getUrl()))
-                .mapAsync(5, url -> this.getTimeResource(url))
+                .mapAsync(5, url -> getTimeResource(url))
                 .toMat(Sink.fold(0, Integer::sum), Keep.right());
 
     }
