@@ -87,6 +87,10 @@ public class Tester {
     }
 
     private HttpResponse complerePequest(ResultURL) {
+
+    }
+
+    private CompletionStage<Integer> getTimeResource(String url) {
         
     }
 
