@@ -4,7 +4,6 @@ import akka.NotUsed;
 import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 import akka.actor.Props;
-import akka.http.javadsl.marshallers.jackson.Jackson;
 import akka.http.javadsl.model.*;
 import akka.pattern.Patterns;
 import akka.stream.ActorMaterializer;
@@ -12,13 +11,8 @@ import akka.stream.javadsl.Flow;
 import akka.stream.javadsl.Keep;
 import akka.stream.javadsl.Sink;
 import akka.stream.javadsl.Source;
-import akka.util.ByteString;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.asynchttpclient.AsyncHttpClient;
-import ru.bmstu.akka.lab5.ResultURL;
-import ru.bmstu.akka.lab5.TestURL;
-import ru.bmstu.akka.lab5.TestUrlMsg;
 import scala.compat.java8.FutureConverters;
 
 
@@ -87,7 +81,7 @@ public class Tester {
        return Flow.of(TestURL.class)
                 .mapConcat(test -> Collections.nCopies(test.getCount(), test.getUrl()))
                 .mapAsync(5, this::getTimeResource)
-                .toMat(Sink.fold(0, Integer::sum), Keep.right());
+                .toMat(Sink.fold(0, Long::sum), Keep.right());
     }
 
     private HttpResponse complerePequest(ResultURL resultURL) throws JsonProcessingException {
@@ -101,13 +95,13 @@ public class Tester {
 
     }
 
-    private CompletionStage<Integer> getTimeResource(String url) {
+    private CompletableFuture<Long> getTimeResource(String url) {
         Instant start = Instant.now();
        return asyncHttpClient.
                prepareGet(url).execute()
                .toCompletableFuture()
                .thenCompose(r -> CompletableFuture.completedFuture(
-                       Duration.between(start, Instant.now().getNano())
+                       Duration.between(start, Instant.now()).getSeconds()
                ));
     }
 
