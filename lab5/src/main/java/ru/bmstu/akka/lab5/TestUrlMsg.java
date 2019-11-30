@@ -13,6 +13,6 @@ public class TestUrlMsg {
         if (resultURL.getTime() == null) {
             return Optional.empty();
         }
-        return Optional.ofNullable();
+        return Optional.ofNullable(resultURL);
     }
 }
