@@ -86,7 +86,7 @@ public class Tester {
 
     }
 
-    private HttpResponse complerePequest() {
+    private HttpResponse complerePequest(ResultURL) {
         
     }
 
