@@ -13,6 +13,7 @@ import akka.stream.javadsl.Keep;
 import akka.stream.javadsl.Sink;
 import akka.stream.javadsl.Source;
 import akka.util.ByteString;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.asynchttpclient.AsyncHttpClient;
 import ru.bmstu.akka.lab5.ResultURL;
@@ -90,7 +91,7 @@ public class Tester {
 
     }
 
-    private HttpResponse complerePequest(ResultURL resultURL) {
+    private HttpResponse complerePequest(ResultURL resultURL) throws JsonProcessingException {
         actorRef.tell(resultURL, ActorRef.noSender());
         return  HttpResponse.create()
                 .withStatus(StatusCodes.OK)
