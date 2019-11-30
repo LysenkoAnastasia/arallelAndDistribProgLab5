@@ -11,6 +11,7 @@ import akka.stream.javadsl.Flow;
 import akka.stream.javadsl.Keep;
 import akka.stream.javadsl.Sink;
 import akka.stream.javadsl.Source;
+import akka.util.ByteString;
 import org.asynchttpclient.AsyncHttpClient;
 import ru.bmstu.akka.lab5.ResultURL;
 import ru.bmstu.akka.lab5.TestURL;
@@ -91,7 +92,7 @@ public class Tester {
         actorRef.tell(resultURL, ActorRef.noSender());
         return  HttpResponse.create()
                 .withStatus(StatusCodes.OK)
-                .
+                .withEntity(ContentTypes.NO_CONTENT_TYPE, ByteString.fromString())
 
     }
 
