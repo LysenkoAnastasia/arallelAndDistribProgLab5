@@ -98,7 +98,7 @@ public class Tester {
                 .withEntity(resultURL.getTime().toString());
                 //.withEntity(ContentTypes.APPLICATION_JSON, ByteString.fromString(
                   //      new ObjectMapper().writer().withDefaultPrettyPrinter().writeValueAsString(resultURL)
-                ));
+                //));
 
     }
 
