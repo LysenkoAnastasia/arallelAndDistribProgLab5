@@ -3,15 +3,15 @@ package ru.bmstu.akka.lab5;
 import java.io.Serializable;
 
 public class ResultURL implements Serializable {
-    private Integer time;
+    private Long time;
     private TestURL test;
 
-    public ResultURL(TestURL test, Integer time) {
+    public ResultURL(TestURL test, Long time) {
         this.time = time;
         this.test = test;
     }
 
-    public Integer getTime() {
+    public Long getTime() {
         return time;
     }
 
