@@ -93,7 +93,9 @@ public class Tester {
     }
 
     private CompletionStage<Integer> getTimeResource(String url) {
-        asyncHttpClient.
+       return asyncHttpClient.
+               prepareGet(url).execute()
+               .
     }
 
 
