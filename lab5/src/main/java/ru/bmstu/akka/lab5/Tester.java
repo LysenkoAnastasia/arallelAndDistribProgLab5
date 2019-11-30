@@ -3,6 +3,7 @@ package ru.bmstu.akka.lab5;
 import akka.NotUsed;
 import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
+import akka.actor.Props;
 import akka.http.javadsl.model.HttpRequest;
 import akka.http.javadsl.model.HttpResponse;
 import akka.http.javadsl.model.Query;
@@ -34,7 +35,7 @@ public class Tester {
     public Tester(AsyncHttpClient asyncHttpClient, ActorSystem system, ActorMaterializer materializer) {
         this.materializer = materializer;
         this.asyncHttpClient = asyncHttpClient;
-        this.actorRef = system.actorOf();
+        this.actorRef = system.actorOf(Props.create(StoreActor.class));
     }
      public Flow<HttpRequest, HttpResponse, NotUsed> createRoute(ActorSystem system, ActorMaterializer materializer) {
         return Flow.of(HttpRequest.class)
