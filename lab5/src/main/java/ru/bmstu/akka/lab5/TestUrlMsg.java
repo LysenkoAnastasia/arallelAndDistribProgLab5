@@ -10,6 +10,9 @@ public class TestUrlMsg {
     }
 
     public Optional<ResultURL> getResultURL() {
-        return resultURL.;
+        if (resultURL.getTime() == null) {
+            return Optional.empty();
+        }
+        return Optional.ofNullable();
     }
 }
