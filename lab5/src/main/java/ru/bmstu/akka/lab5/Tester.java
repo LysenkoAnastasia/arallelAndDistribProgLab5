@@ -96,7 +96,9 @@ public class Tester {
        return asyncHttpClient.
                prepareGet(url).execute()
                .toCompletableFuture()
-               .thenCompose(r -> )
+               .thenCompose(r -> CompletableFuture.completedFuture(
+                       
+               ))
     }
 
 
