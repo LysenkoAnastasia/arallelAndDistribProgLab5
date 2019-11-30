@@ -4,6 +4,7 @@ import akka.NotUsed;
 import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 import akka.actor.Props;
+import akka.http.javadsl.marshallers.jackson.Jackson;
 import akka.http.javadsl.model.*;
 import akka.pattern.Patterns;
 import akka.stream.ActorMaterializer;
@@ -92,7 +93,9 @@ public class Tester {
         actorRef.tell(resultURL, ActorRef.noSender());
         return  HttpResponse.create()
                 .withStatus(StatusCodes.OK)
-                .withEntity(ContentTypes.APPLICATION_JSON, ByteString.fromString())
+                .withEntity(ContentTypes.APPLICATION_JSON, ByteString.fromString(
+                        Jackson.marshaller()
+                ))
 
     }
 
