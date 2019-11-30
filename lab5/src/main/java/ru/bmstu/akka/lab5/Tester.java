@@ -44,7 +44,7 @@ public class Tester {
         return Flow.of(HttpRequest.class)
                 .map(this::request)
                 .mapAsync(1, this::processTest)
-                .map(this::)
+                .map(this::complerePequest);
     }
 
     private TestURL request(HttpRequest httpRequest) {
@@ -84,11 +84,10 @@ public class Tester {
 
     private  Sink<TestURL, CompletionStage<Integer>> createSink() {
         //Flow.<TestURL>create()
-        Flow.of(TestURL.class)
+       return Flow.of(TestURL.class)
                 .mapConcat(test -> Collections.nCopies(test.getCount(), test.getUrl()))
                 .mapAsync(5, this::getTimeResource)
                 .toMat(Sink.fold(0, Integer::sum), Keep.right());
-
     }
 
     private HttpResponse complerePequest(ResultURL resultURL) throws JsonProcessingException {
@@ -109,7 +108,7 @@ public class Tester {
                .toCompletableFuture()
                .thenCompose(r -> CompletableFuture.completedFuture(
                        Duration.between(start, Instant.now().getNano())
-               ))
+               ));
     }
 
 
