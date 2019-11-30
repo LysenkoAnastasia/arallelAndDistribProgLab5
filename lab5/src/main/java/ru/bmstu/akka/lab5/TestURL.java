@@ -4,9 +4,9 @@ import java.io.Serializable;
 
 public class TestURL implements Serializable {
     private String url;
-    private Long count;
+    private Integer count;
 
-    public TestURL(String url, Long count) {
+    public TestURL(String url, Integer count) {
         this.url = url;
         this.count = count;
     }
@@ -15,7 +15,7 @@ public class TestURL implements Serializable {
         return url;
     }
 
-    public Long getCount() {
+    public Integer getCount() {
         return count;
     }
 

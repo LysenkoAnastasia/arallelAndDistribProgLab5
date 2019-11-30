@@ -45,7 +45,7 @@ public class Tester {
         Query query = httpRequest.getUri().query();
         Optional<String> testUrl = query.get("testUrl");
         Optional<String> count = query.get("count");
-        return new TestURL(testUrl.get(), Long.parseLong(count.get()));
+        return new TestURL(testUrl.get(), (int) Long.parseLong(count.get()));
     }
 
     private CompletionStage<ResultURL> processTest(TestURL testURL) {
@@ -79,7 +79,7 @@ public class Tester {
     private  Sink<TestURL, CompletionStage<Long>> createSink() {
         //Flow.<TestURL>create()
        return Flow.of(TestURL.class)
-                .mapConcat(test -> Collections.nCopies(Integer.parseInt(test.getCount()), test.getUrl()))
+                .mapConcat(test -> Collections.nCopies(test.getCount(), test.getUrl()))
                 .mapAsync(5, this::getTimeResource)
                 .toMat(Sink.fold(0L, Long::sum), Keep.right());
     }
