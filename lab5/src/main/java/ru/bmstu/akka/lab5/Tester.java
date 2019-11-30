@@ -91,7 +91,7 @@ public class Tester {
     }
 
     private CompletionStage<Integer> getTimeResource(String url) {
-        
+
     }
 
 
