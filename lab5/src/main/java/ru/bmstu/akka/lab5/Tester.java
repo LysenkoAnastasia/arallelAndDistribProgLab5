@@ -24,6 +24,8 @@ import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 
+import static org.asynchttpclient.Dsl.asyncHttpClient;
+
 public class Tester {
     private ActorRef actorRef;
     private ActorMaterializer materializer;
@@ -62,6 +64,7 @@ public class Tester {
     }
 
     private CompletionStage<ResultURL> startTest(TestURL testURL) {
+        final AsyncHttpClient asyncHttpClient = asyncHttpClient();
         final Sink<TestURL, CompletionStage<Integer>> sink = createSink();
         return Source.from(Collections.singletonList(testURL))
                 .toMat(sink, Keep.right())
@@ -77,11 +80,7 @@ public class Tester {
         //Flow.<TestURL>create()
         Flow.of(TestURL.class)
                 .mapConcat(test -> Collections.nCopies(test.getCount(), test.getUrl()))
-                .mapAsync(5, url -> {
-
-                    return CompletableFuture.completedFuture(0);
-
-                })
+                .mapAsync(5, url -> this.getTimeResource(url))
                 .toMat(Sink.fold(0, Integer::sum), Keep.right());
 
     }
