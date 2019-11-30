@@ -74,7 +74,8 @@ public class Tester {
     }
 
     private  Sink<TestURL, CompletionStage<Integer>> createSink() {
-        Flow.<TestURL>create()
+        //Flow.<TestURL>create()
+        Flow.of(TestURL.class)
                 .mapConcat(test -> Collections.nCopies(test.getCount(), test.getUrl()))
                 .mapAsync(5, url -> {
 
