@@ -100,7 +100,7 @@ public class Tester {
                prepareGet(url).execute()
                .toCompletableFuture()
                .thenCompose(r -> CompletableFuture.completedFuture(
-                       Duration.between(start, Instant.now())
+                       Duration.between(start, Instant.now().getNano())
                ))
     }
 
