@@ -7,6 +7,7 @@ import akka.actor.Props;
 import akka.http.javadsl.model.HttpRequest;
 import akka.http.javadsl.model.HttpResponse;
 import akka.http.javadsl.model.Query;
+import akka.http.javadsl.model.StatusCode;
 import akka.pattern.Patterns;
 import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
@@ -27,7 +28,6 @@ import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 
-import static org.asynchttpclient.Dsl.asyncHttpClient;
 
 public class Tester {
     private ActorRef actorRef;
@@ -92,7 +92,8 @@ public class Tester {
 
     private HttpResponse complerePequest(ResultURL resultURL) {
         actorRef.tell(resultURL, ActorRef.noSender());
-        return  HttpResponse.create();
+        return  HttpResponse.create()
+                .withStatus(StatusCode)
 
     }
 
