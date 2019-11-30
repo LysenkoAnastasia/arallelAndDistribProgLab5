@@ -54,6 +54,7 @@ public class Tester {
        return FutureConverters.toJava(Patterns.ask(this.actorRef, testURL, 5000))
                .thenApply(r -> (TestUrlMsg)r)
                .thenCompose(res -> {
+                   res.isPresent()
                    Optional<ResultURL> resultURL = res.getResultURL();
 
                        }
