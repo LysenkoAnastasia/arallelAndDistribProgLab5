@@ -56,7 +56,7 @@ public class Tester {
                .thenCompose(res -> {
                    Optional<ResultURL> resultURL = res.getResultURL();
                    if (resultURL.isPresent()) {
-                       return CompletableFuture.completedFuture(resultURL);
+                       return CompletableFuture.completedFuture(resultURL.get());
 
                    } return startTest(testURL);
 
