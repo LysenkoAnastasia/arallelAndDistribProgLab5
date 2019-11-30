@@ -50,7 +50,7 @@ public class Tester {
 
     private CompletionStage<ResultURL> processTest(TestURL testURL) {
        return FutureConverters.toJava(Patterns.ask(this.actorRef, testURL, 5000))
-               .thenApply(r -> r)
+               .thenCompose(r -> r)
                .thenCompose(res ->
                        }
                        )
@@ -60,12 +60,8 @@ public class Tester {
     }
 
     private CompletionStage<ResultURL> startTest(TestURL testURL) {
-        //final AsyncHttpClient asyncHttpClient;
         final Sink<TestURL, CompletionStage<Integer>> sink = createSink();
-        //asyncHttpClient.close();
-
         return Source.from(Collections.singletonList(testURL))
-                //.mapConcat(test -> Collections.nCopies(test.getCount(), test.getUrl()))
                 .toMat(sink, Keep.right())
                 .run(materializer)
                 .thenApply(sum -> {
