@@ -34,7 +34,7 @@ public class Tester {
     public Tester(AsyncHttpClient asyncHttpClient, ActorSystem system, ActorMaterializer materializer) {
         this.materializer = materializer;
         this.asyncHttpClient = asyncHttpClient;
-        this.actorRef = system.;
+        this.actorRef = system.actorOf();
     }
      public Flow<HttpRequest, HttpResponse, NotUsed> createRoute(ActorSystem system, ActorMaterializer materializer) {
         return Flow.of(HttpRequest.class)
