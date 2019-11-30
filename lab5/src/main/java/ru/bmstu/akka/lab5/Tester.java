@@ -59,9 +59,6 @@ public class Tester {
                    } return startTest(testURL);
 
                        });
-
-
-
     }
 
     private CompletionStage<ResultURL> startTest(TestURL testURL) {
@@ -89,10 +86,6 @@ public class Tester {
         return  HttpResponse.create()
                 .withStatus(StatusCodes.OK)
                 .withEntity(resultURL.getTime().toString());
-                //.withEntity(ContentTypes.APPLICATION_JSON, ByteString.fromString(
-                  //      new ObjectMapper().writer().withDefaultPrettyPrinter().writeValueAsString(resultURL)
-                //));
-
     }
 
     private CompletableFuture<Long> getTimeResource(String url) {
