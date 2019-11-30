@@ -20,6 +20,7 @@ import ru.bmstu.akka.lab5.TestUrlMsg;
 import scala.compat.java8.FutureConverters;
 
 
+import java.time.Duration;
 import java.util.Collections;
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
@@ -97,7 +98,7 @@ public class Tester {
                prepareGet(url).execute()
                .toCompletableFuture()
                .thenCompose(r -> CompletableFuture.completedFuture(
-                       
+                       Duration.between(request, )
                ))
     }
 
