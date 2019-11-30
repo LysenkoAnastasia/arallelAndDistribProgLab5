@@ -1,5 +1,7 @@
 package ru.bmstu.akka.lab5;
 
+import java.util.Optional;
+
 public class TestUrlMsg {
     private ResultURL resultURL;
 
@@ -7,7 +9,7 @@ public class TestUrlMsg {
         this.resultURL = resultURL;
     }
 
-    public ResultURL getResultURL() {
-        return resultURL;
+    public Optional<ResultURL> getResultURL() {
+        return resultURL.;
     }
 }
