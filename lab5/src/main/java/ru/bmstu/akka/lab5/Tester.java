@@ -55,7 +55,7 @@ public class Tester {
                .thenApply(r -> (TestUrlMsg)r)
                .thenCompose(res -> {
                    res.isPresent()
-                   Optional<ResultURL> resultURL = res.getResultURL();
+                           Optional<ResultURL> resultURL = res.getResultURL();
 
                        }
                        )
