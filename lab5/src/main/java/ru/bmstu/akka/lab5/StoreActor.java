@@ -7,7 +7,7 @@ import java.util.HashMap;
 
 public class StoreActor extends AbstractActor {
 
-    private HashMap<TestURL, Integer> storage;
+    private HashMap<TestURL, Long> storage;
 
 
     public StoreActor() {
