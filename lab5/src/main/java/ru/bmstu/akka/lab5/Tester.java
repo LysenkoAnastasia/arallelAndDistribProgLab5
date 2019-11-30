@@ -90,7 +90,8 @@ public class Tester {
     private HttpResponse complerePequest(ResultURL resultURL) {
         actorRef.tell(resultURL, ActorRef.noSender());
         return  HttpResponse.create()
-                .withStatus(StatusCodes.OK);
+                .withStatus(StatusCodes.OK)
+                .
 
     }
 
