@@ -92,7 +92,7 @@ public class Tester {
 
     private HttpResponse complerePequest(ResultURL resultURL) {
         actorRef.tell(resultURL, ActorRef.noSender());
-        return  asyncHttpClient
+        return  HttpResponse.create();
 
     }
 
