@@ -15,7 +15,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import org.asynchttpclient.AsyncHttpClient;
 import scala.compat.java8.FutureConverters;
 
-
 import java.time.Duration;
 import java.time.Instant;
 import java.util.Collections;
