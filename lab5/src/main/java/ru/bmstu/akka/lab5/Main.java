@@ -26,7 +26,7 @@ public class Main {
                 ActorMaterializer.create(system);
 
         Tester app = new Tester(asyncHttpClient, system, materializer);
-        final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = app.createRoute(system, materializer);
+        final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = app.createRoute();
         final CompletionStage<ServerBinding> binding = http.bindAndHandle(
                 routeFlow,
                 ConnectHttp.toHost("localhost", 8085),

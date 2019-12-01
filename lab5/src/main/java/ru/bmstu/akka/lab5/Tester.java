@@ -33,7 +33,7 @@ public class Tester {
         this.asyncHttpClient = asyncHttpClient;
         this.actorRef = system.actorOf(Props.create(StoreActor.class));
     }
-     public Flow<HttpRequest, HttpResponse, NotUsed> createRoute(ActorSystem system, ActorMaterializer materializer) {
+     public Flow<HttpRequest, HttpResponse, NotUsed> createRoute() {
         return Flow.of(HttpRequest.class)
                 .map(this::request)
                 .mapAsync(1, this::processTest)
