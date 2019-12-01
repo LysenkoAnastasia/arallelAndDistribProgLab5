@@ -36,7 +36,7 @@ public class Tester {
      public Flow<HttpRequest, HttpResponse, NotUsed> createRoute() {
         return Flow.of(HttpRequest.class)
                 .map(this::request)
-                .mapAsync(1, this::processTest)
+                .mapAsync(5, this::processTest)
                 .map(this::complerePequest);
     }
 
