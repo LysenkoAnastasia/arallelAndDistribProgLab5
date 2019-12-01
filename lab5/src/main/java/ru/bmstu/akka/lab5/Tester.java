@@ -13,6 +13,7 @@ import akka.stream.javadsl.Sink;
 import akka.stream.javadsl.Source;
 import akka.util.ByteString;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.asynchttpclient.AsyncHttpClient;
 import scala.compat.java8.FutureConverters;
 
@@ -86,7 +87,7 @@ public class Tester {
         return  HttpResponse.create()
                 .withStatus(StatusCodes.OK)
                 .withEntity(ContentTypes.APPLICATION_JSON, ByteString.fromString(
-                        new 
+                        new ObjectMapper().writer().withDefaultPrettyPrinter().writeValueAsString(resultURL)
                 ));
     }
 
