@@ -11,6 +11,7 @@ import akka.stream.javadsl.Flow;
 import akka.stream.javadsl.Keep;
 import akka.stream.javadsl.Sink;
 import akka.stream.javadsl.Source;
+import akka.util.ByteString;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.asynchttpclient.AsyncHttpClient;
 import scala.compat.java8.FutureConverters;
@@ -84,7 +85,9 @@ public class Tester {
         actorRef.tell(resultURL, ActorRef.noSender());
         return  HttpResponse.create()
                 .withStatus(StatusCodes.OK)
-                .withEntity(resultURL.getTime().toString());
+                .withEntity(ContentTypes.APPLICATION_JSON, ByteString.fromString(
+                        new 
+                ));
     }
 
     private CompletableFuture<Long> getTimeResource(String url) {
