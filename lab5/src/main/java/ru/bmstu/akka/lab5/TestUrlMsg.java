@@ -14,6 +14,5 @@ public class TestUrlMsg {
             return Optional.empty();
         }
         return Optional.ofNullable(resultURL);
-        //return Optional.ofNullable(resultURL);
     }
 }
